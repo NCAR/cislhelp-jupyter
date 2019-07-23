@@ -25,6 +25,10 @@
 ! Reference: https://jblevins.org/log/cmdline
 ! Reference: https://riptutorial.com/fortran/example/26615/passing-command-
 !            line-arguments
+! Reference: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web
+!            &cd=3&ved=2ahUKEwjzpuuZp8rjAhUGI6wKHeYxDRMQFjACegQIAhAB&url=
+!            http%3A%2F%2Ffortranwiki.org%2Ffortran%2Fshow%2Fmodulo&usg
+!            =AOvVaw15nBHY34TrxzAHG_8tHXB-
 !----------------------------------------------------------------------------------
 program contstructMultiDimensionalItem
 USE IFPORT
@@ -100,8 +104,10 @@ implicit none
 
 
     joined_three_dim_arr = three_dimen_arr_1 + three_dimen_arr_2
+    if(modulo(iterator_count,10).eq.0)then
     print*, "New array is formed."
     iterator_count = iterator_count+1
     print*, "Iteration:", iterator_count
+    endif
    end do
 end program contstructMultiDimensionalItem
