@@ -29,6 +29,8 @@
 !            &cd=3&ved=2ahUKEwjzpuuZp8rjAhUGI6wKHeYxDRMQFjACegQIAhAB&url=
 !            http%3A%2F%2Ffortranwiki.org%2Ffortran%2Fshow%2Fmodulo&usg
 !            =AOvVaw15nBHY34TrxzAHG_8tHXB-
+! Reference: http://www.livephysics.com/computational-physics/fortran/fo
+!            rtran-logical-expressions-2/
 !----------------------------------------------------------------------------------
 program contstructMultiDimensionalItem
 USE IFPORT
