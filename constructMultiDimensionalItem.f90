@@ -9,7 +9,7 @@
 !----------------------------------------------------------------------------------
 ! Reference: https://www.tutorialspoint.com/fortran/fortran_dynamic_arrays.htm
 ! Reference: http://www.owlnet.rice.edu/~ceng303/manuals/fortran/FOR5_3.html
-! Reference: https://gcc.gnu.org/onlinedocs/gfortran/RAND.html (Random number 
+! Reference: https://gcc.gnu.org/onlinedocs/gfortran/RAND.html (Random number
 !            generation)
 ! Reference: https://software.intel.com/en-us/forums/intel-visual-fortran-com
 !            piler-for-windows/topic/707300
@@ -41,24 +41,27 @@ implicit none
    real, dimension (:,:,:), allocatable :: joined_three_dim_arr
    real temporary_number
    integer :: first_dim_index, second_dim_index, third_dim_index
-   
+
    ! Beginning the input for the multidimensional array
    integer :: first_dim_size, second_dim_size, third_dim_size
+   integer :: upper_limitation
    integer, parameter :: seed_for_random_num = 1
    integer :: iterator_count = 0
    integer, parameter :: lapse  = 5
    character(len=20) :: submitted_dim_size_1
    character(len=20) :: submitted_dim_size_2
    character(len=20) :: submitted_dim_size_3
+   character(len=20) :: submit_iterations
 
-   if(command_argument_count().ne.3)then
+   if(command_argument_count().ne.4)then
      print*, "Three command arguments needed..."
      stop
    endif
-   
+
    call get_command_argument(1, submitted_dim_size_1)
    call get_command_argument(2, submitted_dim_size_2)
    call get_command_argument(3, submitted_dim_size_3)
+   call get_command_argument(4, submit_iterations)
 
     print*, "Please put the dimensions of the three dimensional array:"
     print*, "Input the first dimension:"
@@ -70,10 +73,13 @@ implicit none
     print*, "Input the third dimension:"
     read(submitted_dim_size_1,*)third_dim_size
     print*, third_dim_size
+    print*, "The number of iterations:"
+    read(submit_iterations,*)upper_limitation
+    print*, upper_limitation
     !Now we begin the allocation of Memory
     allocate ( three_dimen_arr_1(first_dim_size,second_dim_size,third_dim_size) )
     allocate ( three_dimen_arr_2(first_dim_size,second_dim_size,third_dim_size) )
-    do while (iterator_count <= 500)
+    do while (iterator_count <= upper_limitation)
     ! now adding the elements
     do first_dim_index = 1, first_dim_size
       do second_dim_index = 1, second_dim_size
@@ -108,8 +114,8 @@ implicit none
     joined_three_dim_arr = three_dimen_arr_1 + three_dimen_arr_2
     if(modulo(iterator_count,10).eq.0)then
     print*, "New array is formed."
-    iterator_count = iterator_count+1
     print*, "Iteration:", iterator_count
     endif
+    iterator_count = iterator_count+1
    end do
 end program contstructMultiDimensionalItem
