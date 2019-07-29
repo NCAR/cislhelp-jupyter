@@ -13,4 +13,4 @@ setenv TMPDIR /glade/scratch/$USER/temp
 mkdir -p $TMPDIR
 
 ifort -o execution_code_fortran constructMultiDimensionalItem.f90
-./execution_code_fortran
+./execution_code_fortran 80 80 80 100
