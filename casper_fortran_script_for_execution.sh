@@ -13,4 +13,4 @@ mkdir -p $TMPDIR
 
 ifort -o execution_code_fortran constructMultiDimensionalItem.f90
 export OMP_NUM_THREADS=1
-srun ./execution_code_fortran_pile 80 80 80
+srun ./execution_code_fortran_pile 80 80 80 100
